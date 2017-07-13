@@ -81,5 +81,6 @@ resource "aws_cloudwatch_metric_alarm" "scheduled_task_failure_to_obtain_lock_al
     threshold                 = "${var.num_lock_failure_alarm_threshold}"
     alarm_description         = "Fails when the task ${var.task_name} on ${var.env_short_name} env fails to obtain a lock ${var.num_lock_failure_alarm_threshold} times in ${var.num_minutes_lock_failure_alarm_threshold} minutes"
     alarm_actions             = ["${var.alarm_action_arns}"]
+    treat_missing_data        = "${var.lock_failure_alarm_treat_missing_data}"
     insufficient_data_actions = []
 }
