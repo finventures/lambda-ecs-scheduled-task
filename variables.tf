@@ -55,7 +55,7 @@ variable "num_minutes_lock_failure_alarm_threshold" {
     default = "1"
 }
 
-variable "lock_failure_alarm_treat_missing_data" {
-    description = "Sets how the 'failure to obtain lock alarm is to handle missing data points"
+variable "treat_missing_data" {
+    description = "Sets how alarms handle missing data points"
     default = "missing"
 }
