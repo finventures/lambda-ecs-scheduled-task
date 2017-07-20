@@ -57,8 +57,6 @@ resource "aws_cloudwatch_metric_alarm" "scheduled_task_lambda_failure_alarm" {
     namespace                 = "AWS/Lambda"
     dimensions {
       FunctionName = "${aws_lambda_function.scheduled_task.function_name}"
-      "By Environment" = "${var.env_short_name}"
-      "By Task Name"   = "${var.task_name}"
     }
     period                    = "60"
     statistic                 = "Sum"
@@ -83,7 +81,7 @@ resource "aws_cloudwatch_metric_alarm" "scheduled_task_failure_to_obtain_lock_al
     statistic                 = "Sum"
     threshold                 = "${var.num_lock_failure_alarm_threshold}"
     alarm_description         = "Fails when the task ${var.task_name} on ${var.env_short_name} env fails to obtain a lock ${var.num_lock_failure_alarm_threshold} times each min for ${var.num_minutes_lock_failure_alarm_threshold} consecutive minutes"
-    alarm_actions             = ["${var.lock_failure_alarm_action_arns}"]
+    alarm_actions             = ["${var.alarm_action_arns}"]
     treat_missing_data        = "${var.treat_missing_data}"
     insufficient_data_actions = []
 }

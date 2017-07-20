@@ -55,12 +55,6 @@ variable "num_minutes_lock_failure_alarm_threshold" {
     default = "1"
 }
 
-variable "lock_failure_alarm_action_arns" {
-    description = "A list of the ARNs of the actions (sns topics) taken when we fail to obtain the lock per specified criteria"
-    default = []
-    type = "list"
-}
-
 variable "treat_missing_data" {
     description = "Sets how alarms handle missing data points"
     default = "missing"
