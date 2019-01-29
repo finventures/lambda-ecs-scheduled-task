@@ -25,7 +25,7 @@ resource "aws_lambda_function" "scheduled_task" {
         }
     }
     lifecycle {
-        ignore_changes = ["filename"]
+        ignore_changes = ["filename", "version", "last_modified", "qualified_arn"]
     }
 }
 
